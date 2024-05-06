@@ -1,0 +1,48 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Card from "../components/smaller/Card.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <BaseLayout>
+      <main>
+        <img src="/media/images/logo/logo.png" alt="PMDS logo" class="logo" />
+        <center><h1>Memberships are Coming Back!</h1></center>
+        <center>
+          <h4></h4>
+        </center>
+        <p class="justify">
+          We are working to bring the memberships back soons. A few weeks and
+          they will be back. Thanks for your patience.
+        </p>
+        <p class="justify">
+          Meanwhile, you can take a look at our <a href="/blog">blog</a> or
+          listen to our <a href="/podcast">podcast</a>.
+        </p>
+      </main>
+      <main></main>
+    </BaseLayout>
+    <style>
+      .logo {
+        width: 100%;
+        max-width: 180px;
+        height: auto;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .justify {
+        text-align: justify;
+      }
+    </style>
+  </body>
+</html>

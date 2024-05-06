@@ -1,0 +1,71 @@
+---
+const { course, text, downloadLink } = Astro.props;
+---
+
+<div class="card">
+  <h4 class="strong">{course}</h4>
+  <p class="text">{text}</p>
+  {
+    downloadLink ? (
+      <div class="links-container">
+        <a href={downloadLink} class="links" download>
+          Download <i class="bi bi-cloud-download" />
+        </a>
+      </div>
+    ) : (
+      <div class="links-container">unavailable</div>
+    )
+  }
+</div>
+
+<style>
+  @import "../../styles/colors.css";
+
+  .card {
+    width: 100%;
+    height: min-content;
+
+    display: flex;
+    padding: 20px;
+    margin-top: calc(2 * var(--border-radius));
+    margin-bottom: calc(2 * var(--border-radius));
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+
+    border-radius: 10px;
+    background: var(--color-white);
+    color: var(--dark-text);
+  }
+
+  .strong {
+    font-weight: 700;
+  }
+
+  .text {
+    font-size: 0.8em;
+    text-align: justify;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .links-container {
+    display: inline-flex;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    align-items: center;
+    gap: 20px;
+
+    border-radius: 10px;
+    background: var(--gradient-blue);
+  }
+
+  .links {
+    color: var(--color-white);
+    text-decoration: none;
+  }
+</style>

@@ -1,0 +1,54 @@
+---
+import BaseHead from "../../components/BaseHead.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BlogCard from "../../components/smaller/BlogCard.astro";
+import Header from "../../components/Header.astro";
+/*
+import { getCollection } from "astro:content";
+import FormattedDate from "../../components/FormattedDate.astro";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
+ */
+
+let allPosts = await Astro.glob("../../content/blog/*.md");
+allPosts = allPosts.sort(
+  (a, b) =>
+    new Date(b.frontmatter.pubDate).valueOf() -
+    new Date(a.frontmatter.pubDate).valueOf()
+);
+---
+
+<BaseLayout>
+<br/>
+<center><h2>PMDS Blog</h2></center>
+<center><p>Posts written by the PMDS staff</p></center>
+<div class="container">
+  {
+    allPosts.map((post, index) => {
+      return (
+        <BlogCard
+          title={post.frontmatter.title}
+          description={post.frontmatter.description}
+          link={post.frontmatter.articlelink}
+          cover={post.frontmatter.cover}
+          author={post.frontmatter.author}
+        />
+      );
+    })
+  }
+</div>
+</BaseLayout>
+
+<style>
+  .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-evenly;
+  }
+</style>

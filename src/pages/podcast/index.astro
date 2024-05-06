@@ -1,0 +1,55 @@
+---
+import BaseHead from "../../components/BaseHead.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
+import Card from "../../components/smaller/Card.astro";
+import Header from "../../components/Header.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+/*
+import { getCollection } from "astro:content";
+import FormattedDate from "../../components/FormattedDate.astro";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
+ */
+
+let allPodcast = await Astro.glob("../../content/podcast/*.md");
+allPodcast = allPodcast.sort(
+  (a, b) =>
+    new Date(b.frontmatter.pubDate).valueOf() -
+    new Date(a.frontmatter.pubDate).valueOf()
+);
+---
+
+<BaseLayout>
+<br/>
+<center><h2>PMDS Podcast</h2></center>
+<center><p>Episodes of the official PMDS podcast</p></center>
+<div class="container">
+  {
+    allPodcast.map((post, index) => {
+      return (
+        <Card
+          title={post.frontmatter.title}
+          description={post.frontmatter.description}
+          google={post.frontmatter.google}
+          spotify={post.frontmatter.spotify}
+          apple={post.frontmatter.apple}
+        />
+      );
+    })
+  }
+</div>
+</BaseLayout>
+
+<style>
+  .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-evenly;
+  }
+</style>

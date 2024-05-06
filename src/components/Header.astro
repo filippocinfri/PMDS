@@ -1,0 +1,173 @@
+---
+import HeaderLink from "./HeaderLink.astro";
+import { SITE_TITLE } from "../consts";
+import { ViewTransitions } from "astro:transitions";
+---
+
+<header>
+  <nav>
+    <h2><a href="/">{SITE_TITLE}</a></h2>
+    <ViewTransitions />
+    <div class="desktop-links">
+      <HeaderLink href="/">Home</HeaderLink>
+      <HeaderLink href="/blog">Blog</HeaderLink>
+      <HeaderLink href="/notes">Notes</HeaderLink>
+      <!--<HeaderLink href="/plans">Plans study plans</HeaderLink>-->
+      <HeaderLink href="/activities">Activities</HeaderLink>
+      <HeaderLink href="/people">People</HeaderLink>
+      <HeaderLink href="/podcast">Podcast</HeaderLink>
+      <!-- <HeaderLink href="/newsletter">Newsletter</HeaderLink> metti dietro login -->
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">
+        <svg
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-list"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+          ></path>
+        </svg>
+      </button>
+      <div class="dropdown-content">
+        <a href="/">Home</a>
+        <a href="/blog">Blog</a>
+        <a href="/notes">Notes</a>
+        <!--<a href="/plans">Plans</a> study plans-->
+        <a href="/activities">Activities</a>
+        <a href="/people">People</a>
+        <a href="/podcast">Podcast</a>
+        <!-- <a href="/newsletter">Newsletter</a> -->
+      </div>
+    </div>
+    <div class="social-links">
+      <!-- <a href="/login">
+        <i class="bi bi-box-arrow-in-right"></i>
+      </a> -->
+      <a href="https://www.instagram.com/polimidatascientists/" target="_blank">
+        <i class="bi bi-instagram"></i>
+      </a>
+      <a href="https://t.me/joinchat/A-DRFUb1ovIh2nlH6q55Pw" target="_blank">
+        <i class="bi bi-telegram"></i>
+      </a>
+      <a
+        href="https://www.linkedin.com/company/polimi-data-scientists/"
+        target="_blank"
+      >
+        <i class="bi bi-linkedin"></i>
+      </a>
+    </div>
+  </nav>
+</header>
+<style>
+  @import "../styles/colors.css";
+
+  /* Style The Dropdown Button */
+  .dropbtn {
+    background-color: var(--pmds-orange);
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    left: calc(-160px);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {
+    background-color: var(--pmds-orange);
+  }
+
+  header {
+    margin: 0;
+    padding: 0 1em;
+    background: var(--color-white);
+    box-shadow: 0 2px 8px rgba(var(--black), 5%);
+  }
+  h2 {
+    margin: 0;
+    font-size: 1em;
+  }
+
+  h2 a,
+  h2 a.active {
+    text-decoration: none;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  nav a {
+    padding: 1em 0.5em;
+    color: var(--black);
+    border-bottom: 4px solid transparent;
+    text-decoration: none;
+  }
+  nav a.active {
+    text-decoration: none;
+    border-bottom-color: var(--color-primary);
+  }
+  .social-links,
+  .social-links a {
+    display: flex;
+  }
+  .desktop-links {
+    display: flex;
+  }
+  .dropdown {
+    display: none;
+  }
+  @media (max-width: 720px) {
+    .social-links {
+      display: none;
+    }
+    .desktop-links {
+      display: none;
+    }
+    .dropdown {
+      display: flex;
+    }
+  }
+  .bi::before {
+    font-size: 32px;
+  }
+</style>

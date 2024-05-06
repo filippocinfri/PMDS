@@ -1,0 +1,73 @@
+---
+import BaseHead from "../../components/BaseHead.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import Note from "../../components/smaller/Note.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <main>
+    <center><h2>Notes of the Data Science courses</h2></center>
+    <center><p>Brought to you by the PMDS staff</p></center>
+
+    <Note
+      course="Data Mining"
+      text="Collection of questions from the past exams. Data representation, Data exploration, Data preparation, Association rules, Regression, Classification, Model selection, Decision trees, Classification rules, Naive Bayes, k-Nearest Neighbors, Ensemble methods, Clustering, Hierarchical clustering, Representative-based clustering, Density-based clustering, Clustering validation"
+      downloadLink="/media/notes/DMTM_QA_PMDS.pdf"
+    />
+
+    <Note
+      course="Machine Learning"
+      text="Linear Regression, Basis Functions, Direct Approaches, Discriminative Approaches, Regularization Techniques, Bayesian Linear Regression, Linear Classifiers, Discriminant Functions, Probabilistic Discriminative and Generative Approaches, Bias-Variance Tradeoff, Model Ensembles, PAC-Learning and VC-Dimensions, Kernel Methods, Support Vector Machines (SVM), Reinforcement Learning, Markov Decision Processes, Dynamic Programming for MDPs, Monte Carlo Methods, Temporal Difference Learning, Model-Free Control, Multi-Armed Bandits. Topics not covered: Gaussian Processes, Radial Basis Functions and Continous RL"
+      downloadLink="/media/notes/ML_Notes_PMDS_v2.pdf"
+    />
+
+    <Note
+      course="Model Identification and Data Analysis 1"
+      text="Stochastic processes, White Noise, MA, AR, ARX, ARMA, ARMAX, Prediction problem, PEM methods, Least Squares method, Maximum Likelihood method, Model complexity selection, Cross-validation, Final Prediction Error (FPE), Akaike Information Criterion (AIC), Minimal Description Length (MDL), Durbin-Levinson algorithm, Recursive Least Squares"
+      downloadLink="/media/notes/MIDA1_PMDS_v3.pdf"
+    />
+
+    <Note
+      course="Model Identification and Data Analysis 2"
+      text="Black Box non-parametric systems identification of I/O systems using state space models, Parametric Black Box System Identification of I/O Systems (using a frequency domain approach), Kalman Filters, SW-sensing with Black Box Models, Gray Box System System Identification, Minimum Variance Control (MVC), Discretization of Analog systems"
+      downloadLink="/media/notes/MIDA2_PMDS.pdf"
+    />
+    <Note
+      course="Natural Language Processing"
+      text="Error Correction, N-gram Language Models, Part-Of-Speech Tagging, Formal Grammars, Syntactic Parsing, Statistical Parsing, Dependency Parsing, Representation of sentence meaning, Semantic Analysis, Summarizzation, Coreference Resolution, Discourse Coherence, Dialogue Systems, Advanced Dialogue Systems, Lexicons for Sentiment, Affect and Connotation, Computational Phonology, Text-To-Speech, Machine Translation"
+      downloadLink="/media/notes/NLP_PMDS.pdf"
+    />
+    <Note
+      course="Soft Computing"
+      text="Introduction to Machine Learning, Maximum Likelihood Estimation, Perceptron, Hebbian learning, Feedforward Neural Networks, Multi Layer Perceptron, Grandient Descent, Backpropagation, Early Stopping, Weight Decay, Recurrent Neural Networks, Feedforward with Delayed Input, Elman Networks, Vanishing Gradient, LSTM, Deep Learning, Neural Networks Autoencoders, Convolutional Neural Networks"
+      downloadLink="/media/notes/Neural_Networks_PMDS.pdf"
+    />
+    <Note
+      course="Unstructured and Streaming Data Engineering"
+      text="Introduction to Big Data, Introduction to NoSQL, Graph Stores, Neo4J, Key-Value Stores, Redis, Columnar Databases, Cassandra, Document Databases, MongoDB, Introduction to Streaming, EPL, Kafka, KSQL, Spark, Flux, Web APIs, Web Scraping, Data Wrangling, Crowdsourcing"
+      downloadLink="/media/notes/USDE.pdf"
+    />
+    <Note
+      course="Recommender Systems"
+      text="Non-Personalized Recommenders, Quality of RS, Content Based Filtering, Collaborative Filtering, Memory Based and Model Based techniques, Association Rules, SLIM, Matrix Factorization, Hybrid Recommender Systems, Context Aware Recommender Systems, Factorization Machines, Graph-Based Recommender Systems"
+      downloadLink="/media/notes/RS_PMDS.pdf"
+    />
+    <Note
+      course="Performance Evaluation and Applications"
+      text="Performance Modelling, Workload Characterization, Workload Modelling, Probability Distributions, Trace Generation, State Machines, Stochastic Processes, Markov Chains, Phase Type Distribution, Markov Arrival Processes, Queueing Systems, Non-Markovian Queueing Systems, Queueing Networks, Separable and Multi-class Models, Advanced Queueing Network Features"
+      downloadLink="/media/notes/PEA_PMDS.pdf"
+    />
+    <Note
+      course="Uncertainty in AI"
+      text="Fuzzy Systems, Evidence Theory, Graphical Models, Probabilistic Reasoning, Bayesian Networks, Bayesian Network Inference, Dynamic Bayesian Networks."
+      downloadLink="/media/notes/UAI_PMDS.pdf"
+    />
+    <Note
+      course="Bioinformatics and Computational Biology"
+      text="Mendelian Genetics, Molecolar Genetics, Biomolecular Sequence Analysis, Gene Expression Measurement and Analysis, Introduction to Biological Networks, Biomolecular Databanks, Bio-Terminologies and Bio-Ontologies,"
+      downloadLink="/media/notes/BCB_PMDS.pdf"
+    />
+  </main>
+</BaseLayout>

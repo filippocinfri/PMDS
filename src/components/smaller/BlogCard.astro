@@ -1,0 +1,129 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  link: string;
+  cover: string;
+  author: string;
+}
+
+const { title, description, link, cover, author } = Astro.props;
+---
+
+<div class="card">
+  <img class="cover" src={cover} alt="post cover" />
+
+  <div class="author">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="12"
+      height="12"
+      fill="currentColor"
+      class="bi bi-person-fill"
+      viewBox="0 0 16 16"
+    >
+      <path
+        d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
+      ></path>
+    </svg>
+    <p class="author-text">{author}</p>
+  </div>
+  <div class="content">
+    <h4 class="strong">{title}</h4>
+    <div class="justify">{description}</div>
+    <a href={link} target="_blank"><b>Read more</b></a>
+  </div>
+</div>
+
+<style>
+  @import "../../styles/colors.css";
+  :root {
+    --box-radius: 15px;
+  }
+
+  .card {
+    max-width: 400px;
+    width: 100%;
+    height: min-content;
+
+    display: flex;
+    padding: 0px;
+    margin-top: calc(2 * var(--box-radius));
+    margin-bottom: calc(2 * var(--box-radius));
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0px;
+
+    border-radius: var(--box-radius);
+    background: var(--color-white);
+    color: var(--dark-text);
+    overflow: hidden;
+  }
+
+  .cover {
+    width: 100%;
+    margin: 0px;
+    height: auto;
+    border-radius: var(--box-radius) var(--box-radius) 0 0;
+  }
+
+  .author {
+    display: inline-flex;
+    padding: 2px 12px;
+    align-items: center;
+    gap: 2px;
+
+    border-radius: var(--box-radius);
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(25px);
+
+    position: relative;
+    bottom: var(--box-radius);
+    left: calc(2 * var(--box-radius));
+  }
+
+  svg {
+    margin-right: 2px;
+  }
+
+  p {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .author-text {
+    color: var(--color-black);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    max-width: 200px;
+    max-height: calc(2 * var(--box-radius));
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .content {
+    display: flex;
+    width: fill-available;
+    padding: 22px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+
+    position: relative;
+    bottom: var(--box-radius);
+  }
+  .justify {
+    text-align: justify;
+  }
+  .strong {
+    font-weight: 700;
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+</style>

@@ -1,0 +1,21 @@
+:root {
+	/* Variables*/
+	--border-radius: 20px;
+	
+	/* COLOURS */
+	--pmds-orange: #f4a352;
+	--color-primary: #f4a352;
+	--color-white: #ffffff;
+	--color-black: #000000;
+	--dark-text: #3C4858;
+	--color-background: #eeeeee;
+	--gradient-blue: linear-gradient(60deg, #26c6da, #0097a7);
+
+	@media (prefers-color-scheme: dark) {
+		--color-primary: #fdc18b;
+		--color-white: #000000;
+		--color-black: #ffffff;
+		--dark-text: #dfdfdf;
+		--color-background: #1F1F1F;
+	}
+}

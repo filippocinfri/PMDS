@@ -1,0 +1,136 @@
+---
+const { name, role, image, links } = Astro.props;
+const path = "/media/images/members/";
+---
+
+<div class="card">
+  <img class="cover" src=`${path}${image}` alt="member photo" />
+  <div class="content">
+    <h4 class="strong">{name}</h4>
+    {role}
+    <p class="icon-container">
+      {links.meta && <i class="bi bi-meta" />}
+      {
+        links.mail && (
+          <a href={"mailto:" + links.mail} target="_blank">
+            <i class="bi bi-envelope" />
+          </a>
+        )
+      }
+
+      {
+        links.linkedin && (
+          <a href={links.linkedin} target="_blank">
+            <i class="bi bi-linkedin" />
+          </a>
+        )
+      }
+
+      {
+        links.instagram && (
+          <a href={links.instagram} target="_blank">
+            <i class="bi bi-instagram" />
+          </a>
+        )
+      }
+
+      {
+        links.github && (
+          <a href={links.github} target="_blank">
+            <i class="bi bi-github" />
+          </a>
+        )
+      }
+
+      {
+        links.telegram && (
+          <a href={links.telegram} target="_blank">
+            <i class="bi bi-telegram" />
+          </a>
+        )
+      }
+
+      {
+        links.twitter && (
+          <a href={links.twitter} target="_blank">
+            <i class="bi bi-twitter-x" />
+          </a>
+        )
+      }
+    </p>
+    <!-- mettici i pulsanti invece dei link -->
+  </div>
+</div>
+
+<style>
+  @import "../../styles/colors.css";
+  :root {
+    --box-radius: 15px;
+  }
+
+  .card {
+    max-width: 350px;
+    width: 100%;
+    height: min-content;
+
+    display: flex;
+    padding: 0px;
+    margin-top: calc(2 * var(--box-radius));
+    margin-bottom: calc(2 * var(--box-radius));
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0px;
+
+    border-radius: var(--box-radius);
+    background: transparent;
+    color: var(--dark-text);
+    overflow: hidden;
+  }
+
+  .cover {
+    width: 200px;
+    height: 260px;
+    margin: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: var(--box-radius);
+    object-fit: cover;
+  }
+
+  p {
+    margin: 0px auto 0px;
+    padding: 0px;
+    width: fit-content;
+    height: min-content;
+  }
+
+  .content {
+    text-align: center;
+    width: 100%;
+  }
+
+  .strong {
+    font-weight: 700;
+  }
+
+  .icon-container {
+    border-radius: var(--border-radius);
+    background-color: #eeeeee20;
+  }
+
+  a {
+    margin: 0px;
+    padding: 0px;
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+  }
+
+  .bi {
+    margin: 0px;
+    padding: 0px;
+    color: var(--dark-text);
+    height: 50px;
+    border-radius: 15px;
+    font-size: 1.8rem;
+  }
+</style>
